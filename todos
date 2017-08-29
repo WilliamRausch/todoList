@@ -6,14 +6,25 @@ priority INTEGER NOT NULL DEFAULT 1,
 created_at TIMESTAMP NOT NULL,
 completed_at TIMESTAMP);
 
-INSERT INTO todoList (title, details, priority, created_at, completed_at) VALUES ('code', 'difficult', 7, '2016-06-22 19:10:25-07', '2016-06-22 19:10:25-07');
-INSERT INTO todoList (title, details, priority, created_at) VALUES ('shovel', 'easy', 0, '2016-06-22 19:10:25-07');
-INSERT INTO todoList (title, details, priority, created_at) VALUES ('something','abstract', 2,'2016-06-22 19:10:25-07');
-INSERT INTO todoList (title, details, priority, created_at) VALUES ('Sing','billyJoel', 3,'2016-06-22 19:10:25-07');
-INSERT INTO todoList (title, details, priority, created_at) VALUES ('jump','around', 1,'2016-06-22 19:10:25-07' );
+INSERT INTO todoList (title, details, priority, created_at, completed_at) VALUES ('code', 'difficult', 7, '2016-06-7 19:10:25-07', '2016-06-30 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('shovel', 'easy', 4, '2016-06-8 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('something','abstract', 2,'2016-06-9 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('Sing','billyJoel', 3,'2016-06-10 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('jump','around', 1,'2016-06-11 19:10:25-07' );
+INSERT INTO todoList (title, details, priority, created_at, completed_at) VALUES ('code', 'difficult', 7, '2016-06-15 19:10:25-07', '2016-06-30 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('drive', 'rush-hour', 1, '2016-06-17 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('paint','abstract', 2,'2016-06-23 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('guitar','billyJoel', 3,'2016-06-22 19:10:25-07');
+INSERT INTO todoList (title, details, priority, created_at) VALUES ('homework','around', 1,'2016-06-22 19:10:25-07' );
 
 
 SELECT * FROM todoList WHERE completed_at IS NULL;
 SELECT * FROM todoList WHERE priority > 1;
 UPDATE todoList SET completed_at = '2016-06-22 19:10:25-07' WHERE id=3;
 DELETE FROM todoList WHERE completed_at IS NOT NULL;
+
+SELECT * FROM todoList WHERE completed_at IS NULL AND priority=3;
+SELECT * FROM todoList WHERE completed_at IS NULL ORDER BY priority DESC
+SELECT * FROM todoList WHERE (2016-06-8 19:10:29-07-created_at<30) ORDER BY priority DESC;
+SELECT * FROM  todoList WHERE priority=(SELECT max(priority)FROM todoList) ORDER BY created_at DESC;
+
